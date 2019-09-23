@@ -37,7 +37,7 @@ coocaaApp.bindEvents("resume", function () {
     }
 })
 
-coocaaApp.ready=function () {
+coocaaApp.ready(function () {
     checkVersion();
     actionId = getUrlParam("id");
     coocaaApp.getTvSource(function (msg) {
@@ -57,7 +57,8 @@ coocaaApp.ready=function () {
         });
     });
     listenUserChange();
-}
+    initBtn();
+})
 coocaaApp.triggleButton = function () {
     // map = new coocaakeymap($(".coocaabtn"), null, "btnFocus", function() {}, function(val) {}, function(obj) {});
 }
@@ -90,17 +91,28 @@ function backButtonFunc(){
 }
 
 function initBtn() {
+    console.log("=============");
+    $(".listItem").unbind("itemFocus").bind("itemFocus",function () {
+        var _curIndex = $(".listItem").index($(this));
+        var x = 0;
+        var _h1 = $("#gameing").outerHeight(true);
+        var _h2 = $("#waitgame").outerHeight(true);
+        var _h3 = $(".listbox :eq(0)").outerHeight(true);
+        console.log(_h1+"==="+_h2+"==="+_h3);
+        var h = (activeFlag == "0")?_h1:_h2;
+
+        x = parseInt(Math.floor(_curIndex/3))*_h3+h;
+        console.log(x);
+        // $("#mainPage").css("transform", "translate3D(0, -" + x + "px, 0)");
+        $("#mainPage").stop(true, true).animate({scrollTop: x}, {duration: 0,easing: "swing"});
+    })
+
+    $(".secondBox").unbind("itemFocus").bind("itemFocus",function () {
+        $("#mainPage").stop(true, true).animate({scrollTop: 0}, {duration: 0,easing: "swing"});
+    })
     $(".operationblock").unbind("itemClick").bind('itemClick', function () {
         var _thisIndex = $(".operationblock").index($(this));
 
-    });
-    $(".operationblock").unbind("itemFocus").bind('itemFocus', function () {
-        var _thisIndex = $(".operationblock").index($(this));
-        var trans = Math.ceil((_thisIndex + 1) / 4) * 180 * -1 + "px";
-        if (Math.ceil((_thisIndex + 1) / 4) == 1) {
-            $(this).attr("uptarget", "#enter7");
-        }
-        $("#mainPage").css("transform", "translate3D(0, " + trans + ", 0)");
     });
     $("#myawardBtn").unbind("itemClick").bind('itemClick', function () {
         console.log("点击了我的奖励");
@@ -119,7 +131,7 @@ function initBtn() {
     });
     $("#ruleBtn").unbind("itemClick").bind('itemClick', function () {
         $("#rulePage").show();
-        map = new coocaakeymap($("#rulePage"), null, "btnFocus", function () {}, function (val) {}, function (obj) {});
+        map = new coocaakeymap($("#rulePage"), null, "btn-focus", function () {}, function (val) {}, function (obj) {});
     });
 }
 function showPage() {
@@ -144,74 +156,18 @@ function showPage() {
             if (data.code == 50100) {
 
             }else{
-                $("#errorpage").show();
-                map = new coocaakeymap($("#errorpage"), null, "btnFocus", function () {}, function (val) {}, function (obj) {});
-                $("#errorpage").unbind("itemClick").bind("itemClick",function(){
-                    $("#errorpage").hide();
-                    showPage();
-                    var _dateObj = {
-                        "page_name": "活动主页面",
-                        "page_state": "加载异常",
-                        "activity_name": "2019十一活动",
-                        "activity_type": "OKR活动",
-                        "button_name": "刷新重试",
-                        "activity_id": actionId,
-                        "open_id":openid
-                    };
-                    sentLog("web_button_clicked_new", _dateObj);
-                    _czc.push(['_trackEvent', '十一活动','活动主页面','加载异常曝光' , '', '']);
-                });
-                var _dateObj = {
-                    "page_name": "活动主页面",
-                    "page_state": "加载异常",
-                    "activity_name": "2019十一活动",
-                    "activity_type": "OKR活动",
-                    "activity_id": actionId,
-                    "decoration_count": 0,
-                    "load_duration": getTotalTime(),
-                    "open_id":openid
-                };
-                sentLog("web_page_show_new", _dateObj);
-                _czc.push(['_trackEvent', '十一活动','活动主页面','加载异常曝光' , '', '']);
+                map = new coocaakeymap($(".coocaabtn"), null, "btn-focus", function() {}, function(val) {}, function(obj) {});
             }
         },
         error: function (error) {
             console.log("-----------访问失败---------" + JSON.stringify(error));
-            $("#errorpage").show();
-            map = new coocaakeymap($("#errorpage"), null, "btnFocus", function () {}, function (val) {}, function (obj) {});
-            $("#errorpage").unbind("itemClick").bind("itemClick",function(){
-                $("#errorpage").hide();
-                showPage(true);
-                var _dateObj = {
-                    "page_name": "活动主页面",
-                    "page_state": "加载异常",
-                    "activity_name": "2019十一活动",
-                    "activity_type": "OKR活动",
-                    "button_name": "刷新重试",
-                    "activity_id": actionId,
-                    "open_id":openid
-                };
-                sentLog("web_button_clicked_new", _dateObj);
-                _czc.push(['_trackEvent', '十一活动','活动主页面','加载异常点击刷新重试' , '', '']);
-            })
-            var _dateObj = {
-                "page_name": "活动主页面",
-                "page_state": "加载异常",
-                "activity_name": "2019十一活动",
-                "activity_type": "OKR活动",
-                "activity_id": actionId,
-                "decoration_count": 0,
-                "load_duration": getTotalTime(),
-                "open_id":openid
-            };
-            sentLog("web_page_show_new", _dateObj);
-            _czc.push(['_trackEvent', '十一活动','活动主页面','曝光' , '', '']);
         },
         complete: function (XMLHttpRequest, status) {
             console.log("-------------complete------------------" + status);
             if (status == 'timeout') {
                 ajaxTimeoutOne.abort();
             }
+            map = new coocaakeymap($(".coocaabtn"), null, "btn-focus", function() {}, function(val) {}, function(obj) {});
         }
     });
 }

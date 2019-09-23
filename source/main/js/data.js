@@ -1,5 +1,5 @@
 /**
- * Created by Mr.jr on 2019/8/13.
+ * Created by Mr.Lxw on 2019/8/13.
  */
 var accountVersion = ""; // 账户版本
 var browserVersion = 0;//浏览器版本
@@ -34,7 +34,6 @@ var enurl = "http://beta.webapp.skysrt.com/games/webapp/101/mobile/index.html?";
 var allowanceUrl = "http://172.20.155.209:6081/api/subsidy/v1/query-userSubsidyInfo-byToken"  //查询津贴地址
 var allowanceClientId = "YS_BETA";
 var vipstartUrl = "http://dev.business.video.tc.skysrt.com/v3/web/actCenter/index.html";
-var _urlMockSrv = 'http://172.20.155.103:3000/mock/305';
 var isDebug = true;
 
 //以上为共用参数；以下开始为业务全局变量
@@ -42,12 +41,13 @@ var userKeyId = "";
 var marqueeInterval = null;//中奖喜讯轮播用
 var browserVersionLow = false;
 var activeFlag = "";//记录活动状态：0-进行中；1-已结束或已冻结；2-开始瓜分
+var gameStatus = "";//记录活动状态：0-进行中；1-已结束或已冻结；2-开始瓜分
 var starTime="";
 var nowTime="";
 
-//lxw
+
+//zy
 var _curFocusId = null;
-var awardObjBox = {}; //存储奖励对象
 var dialogTime = ""; //报错toast
 var hasGotAllowance = "2"; //是否获取津贴
 var hasGotActionaward = "2"; //是否获取我的奖励
