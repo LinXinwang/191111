@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>618赏“金”嘉年华，赢免单兑好礼一起疯狂618</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/sm.min.css">
+    <link rel="stylesheet" href="css/sm-extend.css">
+    <link rel="stylesheet" href="css/adress.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <script src="js/zepto.js"></script>
+    <script>
+        //声明_czc对象:
+        var _czc = _czc || [];
+        //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
+       _czc.push(["_setAccount", "1274864418"]);
+    </script>
+
+  </head>
+  <body>
+    <!-- 填写地址信息 -->
+    <div class="page-group" id="address_page" style="display: none;">
+        <div id="page-city-picker" class="page">
+
+            <div class="head shiwu" style="display:none">
+                <ul class="prize_img">
+                  <img id="awardImg" src="">
+                </ul>
+                <ul class="prize_name">
+                  <li style="color:#fff">恭喜您获得</li>
+                  <li style="color: #ffe35e; font-size:18px" id="awardName"></li>
+                </ul>
+            </div>
+            <div class="head jinli" style="display:none">
+                <ul class="prize_img">
+                  <img src="img/jinli.png">
+                </ul>
+                <ul class="prize_name">
+                  <li style="color: #ffe35e; font-size:18px">恭喜您获得<span id="jinli"></span>号锦鲤</li>
+                  <li style="color:#fff">一人独享5万奖励</li>
+                </ul>
+            </div>
+            <form name="phone-form">
+                <div class="phone-list control-field clearfix">
+                    <ul class="fl key"><i class="fa fa-user-circle-o" aria-hidden="true"></i>收货人</ul>
+                    <ul class="fl value"><input type="text" class="phone-val name-val" id="name" placeholder="请输入您的名字"  data-validate="name"   data-describedby="name-description">
+                    </ul>
+                </div>
+                <div class="phone-list control-field clearfix">
+                    <ul class="fl key"><i class="fa fa-1x fa-mobile" aria-hidden="true"></i>手机号码</ul>
+                    <ul class="fl value"><input id="phone" class="phone-val" placeholder="请输入您的手机号码"  ></ul>
+                </div>
+                <div class="phone-list position-r clearfix">
+                    <ul class="fl key"><i class="fa fa-address-card-o" aria-hidden="true"></i>省市地区</ul>
+                   <ul class="fl value"><div class="content-block">
+                        <div class="list-block">
+                            <ul>
+                                <li class="item-content item-link">
+                                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                                    <div class="item-inner" style="margin-left: 0; padding-left: .25rem;">
+                                      <div class="item-title">
+                                          <input id="city-picker" class="code-val" type="text" required="required" readonly data-validate="region" data-describedby="region-description" placeholder="请选择您的所在省市">
+                                      </div>
+                                      <div class="item-after select-area" style="font-size: 0.8rem;"></div>
+                                    </div>
+                                </li>   
+                            </ul>
+                        </div>
+                    </div></ul>
+                </div>
+                <div class="phone-list control-field clearfix">
+                    <ul class="fl key"><i class="fa fa-home" aria-hidden="true" style="font-size:18px"></i>详细地址</ul>
+                     <ul class="fl value" style="height:60px"><textarea type="text" class="phone-val" id="address" placeholder="请填写详细街道小区楼栋门牌号" style="height:60px" required="required"  data-validate="address"   data-describedby="address-description" ></textarea></ul>
+                </div>
+                <!-- 温馨提示 -->
+                <div class="tips-value">
+                    <p class="explain"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>说明：</p>
+                    <p class="explain_txt">1、奖品将于活动结束后10个工作日内安排发放，请填写真实有效的信息，以便于工作人员及时与您取得联络；</p>
+                    <p class="explain_txt">2、请保持电话畅通，若无法取得联系，后果将由本人承担；</p>
+                    <p class="explain_txt"></p>
+                    <p class="explain_txt">3、如有疑问，请关注【酷开会员】公众号咨询在线客服，或拨打全国服务热线：400-168-8880。</p>
+                </div>
+                <button class="display-b phone-submit col-fff mainBgColor" id="affirmInfo" >提交地址</button>
+                <span class="tips-message" style="font-size: .7rem;"></span>
+            </form>
+        </div>
+    </div>
+    <!-- 填写话费信息 -->
+<!--     <div class="page-group" id="phone_page" style="display: none;">
+        <div style="font-size: .75rem; margin-top:  2rem; margin-left: .7rem;">请填写您的领取信息<br />（奖品将发放到您填写的手机号码）</div>
+        <form name="phone-form">
+            <div class="phone-list control-field">
+                <input id="phone1" class="phone-val" placeholder="联系电话"  >
+            </div>
+            <button class="display-b phone-submit col-fff mainBgColor" id="phoneSubmit" style="margin-top: 1rem;">确认</button>
+            <span class="tips-message" style="font-size: 0.7rem;"></span>
+        </form>
+    </div> -->
+    <!-- 填写现金大奖信息 -->
+    <div class="page-group" id="phone_page" style="display: none;">
+        <div class="head xianjin">
+            <ul class="prize_img">
+              <img src="img/red.png">
+            </ul>
+            <ul class="prize_name">
+              <li style="color:#fff">恭喜您获得<span id="money"></span>元现金</li>
+            </ul>
+        </div>
+            <form name="phone-form">
+                <div class="phone-list control-field clearfix">
+                    <ul class="fl key"><i class="fa fa-user-circle-o" aria-hidden="true"></i>姓名</ul>
+                    <ul class="fl value"><input type="text" class="phone-val name-val" id="name1" placeholder="请输入您的名字"  data-validate="name1"   data-describedby="name-description">
+                    </ul>
+                </div>
+                <div class="phone-list control-field clearfix">
+                    <ul class="fl key"><i class="fa fa-1x fa-mobile" aria-hidden="true"></i>联系电话</ul>
+                    <ul class="fl value"><input id="phone1" class="phone-val" placeholder="请输入您的手机号码"  ></ul>
+                </div>
+                <!-- 温馨提示 -->
+                <div class="tips-value">
+                    <p class="explain"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>说明：</p>
+                    <p class="explain_txt">1、请您填写真实有效的信息，以便于工作人员及时与您取得联络；</p>
+                    <p class="explain_txt">2、请保持电话畅通，若无法取得联系，后果将由本人承担；</p>
+                    <p class="explain_txt" style="color:#e05041">3、除超级锦鲤外的实物奖励将在提交信息后的10个工作日内安排寄出~</p>
+                    <p class="explain_txt">4、如有疑问，请关注【酷开会员】公众号咨询在线客服，或拨打全国服务热线：400-168-8880。</p>
+                </div>
+                <button class="display-b phone-submit col-fff mainBgColor" id="phoneInfo" >确认提交</button>
+                <span class="tips-message" style="font-size: 0.7rem;"></span>
+            </form>
+    </div>
+    <!-- 信息确认 -->
+    <div class="phone-value affirm-value page-group" id="affirm_value" style="display: none;">
+        <div class="nav cl col-999" style="padding-bottom: 0;"><span id="affirmBack">&lt;&nbsp;修改</span></div>
+        <h2 class="ta-c col-main">收货信息</h2>
+        <div style="padding: 0 .5rem; font-size: .8rem;">
+            <div class="ta-left col-666">
+                收货人：<span class="this_name"></span>
+            </div>
+            <div class="ta-left col-666">
+                联系电话：<span class="this_tel"></span>
+            </div>
+            <div class="ta-left col-666">
+                详细地址：<span class="this_addr"></span>
+            </div>
+            
+        </div>
+        <div class="important-info col-main">
+            <img src="img/tip.png">小主，收货信息提交之后不能更改哦，请确认信息无误!
+        </div>
+        <button class="phone-submit col-fff mainBgColor" id="affirmInfo">提交</button>
+        <!-- <button class="phone-submit col-fff mainBgColor" id="useNew" style="width: 30%; margin: .5rem 0;">使用新地址</button> -->
+        <span class="tips-message" style="font-size: .7rem;"></span>
+    </div>
+    <div class="phone-value affirm-value page-group" id="affirm_phone" style="display: none;">
+        <div class="nav cl col-999" style="padding-bottom: 0;"><span id="phoneBack">&lt;&nbsp;修改</span></div>
+            <div style="font-size: .8rem; margin-left: 1rem;">请核对您的领取手机号码：</div>
+            <div style="padding: 0 .5rem; font-size: .8rem;">
+                <div class="ta-left col-666">
+                    联系电话：<span class="this_tel"></span>
+                </div>
+            </div>
+            <div class="important-info col-main">
+                <img src="img/tip.png">小主，收货信息提交之后不能更改哦，请确认信息无误!
+            </div>
+            <button class="phone-submit col-fff mainBgColor" id="phoneInfo">提交</button>
+            <span class="tips-message" style="font-size: .7rem;"></span>
+        </div>
+        <!-- <button class="phone-submit col-fff mainBgColor" id="useNew" style="width: 30%; margin: .5rem 0;">使用新地址</button> -->
+    </div>
+    <!-- 温馨提示 -->
+    <div class="phone-value tips-value" id="tips_value" style="display: none;">
+        <div class="alerdy"><img src="img/succes.png"  style="width:80%"/></div>
+        <!-- <button class="display-b phone-submit col-fff mainBgColor" style="width:60%" id="sub_ok" >好的</button> -->
+    </div>
+    <div class="phone-value tips-value" id="tips_phone" style="display: none;">
+        <div class="alerdy"><img src="img/succes.png"  style="width:80%" /></div>
+<!--         <h2 class="ta-c col-main" style="font-size: 1rem">恭喜您，领取信息提交成功！</h2>
+        <p class="ta-c col-666" style="margin: 0; padding: 0; font-size: .7rem;">我们将在活动结束后10个工作日为您发放奖品，请保持电话畅通~~</p>
+        <div class="tips cl" style="margin-top: 1rem; padding-left: 1.6rem;">
+            <img class="fl tips-left" src="img/help.png">
+            <div class="fl tips-main">如有疑问请关注微信公众号</div> 
+            <span>【酷开会员】-在线客服进行咨询</span>
+        </div> -->
+    </div>
+    <!-- 已录入信息 -->
+    <div class="phone-value tips-value" id="entered_page" style="display: none;">
+<!--         <div class="head" id="type2" style="display:none"> 
+            <div class="prize_info">
+                <div class="awardPic">
+                    <div class="img_box"><img id="awardPic1" src="img/gold.png" /></div>
+                </div>
+                <div class="awardName">
+                    <p class="gx">恭喜您获得</p>
+                    <p id="awardName1"></p>
+                </div>
+            </div>
+        </div>
+        <div class="head" id="type15" style="display:none"> 
+            <div class="prize_info">
+                <div class="getmoney">
+                    <p class="gx">恭喜您获得免单机会</p>
+                </div>
+            </div>
+        </div> -->
+        <div class="alerdy"><img src="img/alerdy.png" /></div>
+    </div>
+
+    <!-- 信息录入失败 -->
+    <div class="phone-value tips-value" id="enterFail_page" style="display: none;">
+        <div class="alerdy"><img src="img/error.png" /></div>
+        <button class="display-b phone-submit col-fff mainBgColor" style="width:60%" id="sub_again" >返回重试</button>
+    </div>
+    <!-- 未中奖 -->
+    <div class="phone-value tips-value" id="wzj_page" style="display: none;">
+        <h2 class="ta-c col-main text-tip" style="font-size: 1rem;">您本次未中奖，谢谢！</h2>
+    </div>
+    <script type="text/javascript" src="js/sm.js"></script>
+    <script type="text/javascript" src="js/sm-extend.js"></script>
+    <script type="text/javascript" src="js/sm-city-picker.js"></script> 
+    <script type="text/javascript" src="js/index.js?id=2"></script>
+    <script type="text/javascript" src="js/cm.js"></script>
+    <script type="text/javascript">
+         var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+         document.write(unescape("%3Cspan style='display:none;' id='cnzz_stat_icon_1274864418'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1274864418' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+  </body>
+</html>

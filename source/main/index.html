@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <script>
+        var _czc = _czc || [];
+        _czc.push(["_setAccount", "1274864418"]);
+    </script>
+    <script type="text/javascript">
+        var adjust = function () {
+            if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+                var version = parseFloat(RegExp.$1);
+                if (version > 2.3) {
+                    var phoneScale = parseInt(window.screen.width) / 1280;
+                    document.write('<meta name="viewport" content="width=1280, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+                } else {
+                    document.write('<meta name="viewport" content="width=1280, target-densitydpi=device-dpi">');
+                }
+            } else {
+                document.write('<meta name="viewport" content="width=1280, user-scalable=no, target-densitydpi=device-dpi">');
+            }
+        }
+        adjust();
+    </script>
+</head>
+
+<body>
+    <div id="deviceready">
+        <!--活动主页面-->
+        <div id="mainPage" class="fullChild">
+            <div id="maintop">
+                <div id="toplog"></div>
+                <div id="myawardBtn" class="topRightBtn coocaabtn">我的奖励(可抽奖3次)</div>
+                <div id="rulebtn" class="topRightBtn coocaabtn">活动规则</div>
+            </div>
+            <div id="maingame">
+                <div id="waitgame" class="gamebox coocaabtn">
+                    <div class="gametime"></div>
+                    <div id="waitInfo">
+                        <div id="waitBest">今日最高成绩：<span></span></div>
+                        <div id="waitTop">当前排名：<span></span></div>
+                        <div id="waitOvertimes">剩余游戏机会：<span></span></div>
+                    </div>
+                    <div id="endbtn"></div>
+                </div>
+                <div id="gameing" class="gamebox coocaabtn">
+                    <div class="gametime"></div>
+                    <div id="todayrecord" style="display:none">今日最高成绩：<span class="todayscore"></span> <span class="todaylistnum"></span></div>
+                    <div id="todaymarquee">
+                        <ul id="todayawardul">
+                        </ul>
+                    </div>
+                    <div id="startbtn"><span></span></div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+        <!--活动规则页面-->
+        <div id="rulePage" class="fullChild none">
+            <div id="rulebox">
+                <img src="http://sky.fs.skysrt.com/statics/webvip/webapp/101/mainIndex/r1.png">
+                <img src="http://sky.fs.skysrt.com/statics/webvip/webapp/101/mainIndex/r2.png">
+                <img src="http://sky.fs.skysrt.com/statics/webvip/webapp/101/mainIndex/r3.png">
+                <img src="http://sky.fs.skysrt.com/statics/webvip/webapp/101/mainIndex/r41.png">
+                <img src="http://sky.fs.skysrt.com/statics/webvip/webapp/101/mainIndex/r5.png">
+                <img src="http://sky.fs.skysrt.com/statics/webvip/webapp/101/mainIndex/r6.png">
+            </div>
+        </div>
+        <!--我的奖励页面-->
+        <div id="myawardPage" class="fullChild none">
+            <div id="myAwardBox" class="none"></div>
+            <div id="noAwardBox1" class="coocaa_btn2 none"></div>
+            <div id="noAwardBox2" class="coocaa_btn2 none"></div>
+        </div>
+        <div id="awardGetFail">奖品领取失败，请重试~</div>
+        <!--奖励弹窗页面-->
+        <div id="awardDialogPage" class="fullChild none"></div>
+        <!--榜单页面-->
+        <div id="billboardPage" class="fullChild none">
+
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/qrcode.js"></script>
+    <script type="text/javascript" src="./js/data.js"></script>
+    <script type="text/javascript" src="./cordova.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+
+    <script type="text/javascript">
+        setTimeout(otherPageInit, 1000);
+        map = new coocaakeymap($(".coocaabtn"), null, "btn-focus", function() {}, function(val) {}, function(obj) {});
+        function otherPageInit() {
+            // $("#noAwardBox1").css("background-image", "url(http://sky.fs.skysrt.com/statics/webvip/webapp/101/award/noaward.png)");
+            // $("#noAwardBox2").css("background-image", "url(http://sky.fs.skysrt.com/statics/webvip/webapp/101/award/noaward.png)");
+            // $("#myawardPage").css("background-image", "url(http://sky.fs.skysrt.com/statics/webvip/webapp/101/award/bg.jpg)");
+            // $("#listPage").css("background-image", "url(http://sky.fs.skysrt.com/statics/webvip/webapp/101/ranklist/rank-bg.jpg)");
+            // $("#divideListPage").css("background-image", "url(http://sky.fs.skysrt.com/statics/webvip/webapp/101/divide/divide-bg.jpg)");
+        }
+    </script>
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan  style='display:none' id='cnzz_stat_icon_1274864418'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1274864418' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+
+</html>
